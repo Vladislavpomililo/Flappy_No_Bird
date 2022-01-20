@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         isUlta = true;
         isGameOver = true;
         isActivUlta = false;
-        countCorn = 0;
+        countCorn = 4;
         InvokeRepeating("SpawnPipe", startDelay, repeatRate);
 
         if (MainManager.Instance != null)
