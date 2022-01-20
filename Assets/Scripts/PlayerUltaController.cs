@@ -4,26 +4,39 @@ public class PlayerUltaController : PlayerController
 {
     [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private AudioClip pipeSound;
-    private AudioSource playerAudio;
     [SerializeField] private AudioClip ultaSound;
 
-    private void Awake()
+    public override void Start()
     {
-        playerAudio = GetComponent<AudioSource>();
+        base.Start();
         playerAudio.PlayOneShot(ultaSound, 1f);
     }
 
     public override void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Pipe"))
+        string tag = other.gameObject.tag;
+        switch (tag)
         {
-            playerAudio.PlayOneShot(pipeSound, 1f);
-            explosionParticle.Play();
-            Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Corn"))
-        {
-            Destroy(other.gameObject);
+            case "Pipe":
+                playerAudio.PlayOneShot(pipeSound, 1f);
+                explosionParticle.Play();
+                Destroy(other.gameObject);
+                break;
+
+            case "Ground":
+                playerRb.AddForce(Vector3.up * floatForce * 0.5f, ForceMode.Impulse);
+                break;
+
+            case "Sky":
+                playerRb.AddForce(Vector3.up * floatForce * -0.1f, ForceMode.Impulse);
+                break;
+
+            case "Corn":
+                Destroy(other.gameObject);
+                break;
+
+            default:
+                break;
         }
     }   
 }

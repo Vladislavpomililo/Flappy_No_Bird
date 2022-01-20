@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float floatForce;
-    private Rigidbody playerRb;
+    [SerializeField] protected float floatForce;
+    protected Rigidbody playerRb;
     private GameManager gameManager;
     [SerializeField] private AudioClip cornSound;
     [SerializeField] private AudioClip gameOverSound;
-    private AudioSource playerAudio;
+    protected AudioSource playerAudio;
     private AudioSource mainSourse;
 
-    void Start()
+    public virtual void Start()
     {
         playerAudio = GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
