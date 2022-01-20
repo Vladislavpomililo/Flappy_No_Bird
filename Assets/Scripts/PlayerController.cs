@@ -39,29 +39,32 @@ public class PlayerController : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Pipe"))
+        string tag = other.gameObject.tag;
+        switch (tag)
         {
-            mainSourse.Stop();
-            mainSourse.PlayOneShot(gameOverSound, 1.0f);
-            gameManager.GameOver();
-            Destroy(gameObject);
-        }
-        else if (other.gameObject.CompareTag("Ground"))
-        {
-            playerRb.AddForce(Vector3.up * floatForce * 0.5f, ForceMode.Impulse);
-        }
+            case "Pipe":
+                mainSourse.Stop();
+                mainSourse.PlayOneShot(gameOverSound, 1.0f);
+                gameManager.GameOver();
+                Destroy(gameObject);
+                break;
 
-        else if (other.gameObject.CompareTag("Sky"))
-        {
-            playerRb.AddForce(Vector3.up * floatForce * -0.1f, ForceMode.Impulse);
-        }
+            case "Ground":
+                playerRb.AddForce(Vector3.up * floatForce * 0.5f, ForceMode.Impulse);
+                break;
 
-        else if (other.gameObject.CompareTag("Corn"))
-        {
-            playerAudio.PlayOneShot(cornSound, 1.0f);
-            gameManager.isUlta = false;
-            Destroy(other.gameObject);
-        }
+            case "Sky":
+                playerRb.AddForce(Vector3.up * floatForce * -0.1f, ForceMode.Impulse);
+                break;
 
+            case "Corn":
+                playerAudio.PlayOneShot(cornSound, 1.0f);
+                gameManager.isUlta = false;
+                Destroy(other.gameObject);
+                break;
+
+            default:
+                break;
+        }
     }
 }
