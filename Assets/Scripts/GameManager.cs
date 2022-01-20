@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     private int score;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI UltaText;
+    [SerializeField] private TextMeshProUGUI ultaText;
+    [SerializeField] private TextMeshProUGUI timerUltaText;
     public bool isGameOver;
     [SerializeField] private GameObject gameOverMenu;
     private int countCorn;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     public Vector3 positionPlayer;
     [SerializeField] private float timerUlta;
     private float newTimerUlta;
-    [SerializeField] private AudioSource gameSourse;
+    [SerializeField] private AudioSource gameSource;
 
     void Start()
     {
@@ -52,17 +53,25 @@ public class GameManager : MonoBehaviour
         }
         if(isUlta == false)
         {
-            UltaText.gameObject.SetActive(true);
+            ultaText.gameObject.SetActive(true);
         }
         else
         {
-            UltaText.gameObject.SetActive(false);
+            ultaText.gameObject.SetActive(false);
         }
         if(isActivUlta == true)
         {
+            if (timerUlta == newTimerUlta)
+            {
+                timerUltaText.gameObject.SetActive(true);
+            }
+
             timerUlta -= Time.deltaTime;
+            timerUltaText.text = timerUlta.ToString("0,0");
+
             if (timerUlta < 0)
             {
+                timerUltaText.gameObject.SetActive(false);
                 NormalPlayer();
                 timerUlta = newTimerUlta;
             }
@@ -100,7 +109,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         isGameOver = false;
         gameOverMenu.gameObject.SetActive(true);
-        UltaText.gameObject.SetActive(false);
+        ultaText.gameObject.SetActive(false);
         if (score > MainManager.Instance.score)
         {
             MainManager.Instance.score = score;
@@ -120,8 +129,8 @@ public class GameManager : MonoBehaviour
 
     public void Ulta()
     {
-        gameSourse.Pause();
-        UltaText.gameObject.SetActive(false);
+        gameSource.Pause();
+        ultaText.gameObject.SetActive(false);
         Instantiate(prefabPlayerUlta, positionPlayer, transform.rotation);
         isUlta = true;
         isActivUlta = true;
@@ -129,7 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void NormalPlayer()
     {
-        gameSourse.Play();
+        gameSource.Play();
         var block = GameObject.FindWithTag("PlayerUlta");
         positionPlayer = block.transform.position;
         Destroy(block);
