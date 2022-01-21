@@ -6,12 +6,14 @@ public class PlayerUltaController : PlayerController
     [SerializeField] private AudioClip pipeSound;
     [SerializeField] private AudioClip ultaSound;
 
+    // Наследуем базовый метод Start и включаем музыку на время действия ульты
     public override void Start()
     {
-        base.Start();
+        base.Start(); 
         playerAudio.PlayOneShot(ultaSound, 1f);
     }
 
+    // Проверяем тег обьекта коллизии и выполняем участок кода для данного тега
     public override void OnCollisionEnter(Collision other)
     {
         string tag = other.gameObject.tag;

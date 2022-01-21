@@ -24,24 +24,27 @@ public class UI_Main : MonoBehaviour
         MainManager.Instance.name = inputName.text;
     }
 
+    // Метод загрузки игровой сцены
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
+    // Метод входа в настройки 
     public void Settings()
     {
         baseMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
 
+    // Метод возврата в главное меню
     public void BackToMainMenu()
     {
         baseMenu.SetActive(true);
         settingsMenu.SetActive(false);
     }
 
-
+    // Метод выхода из приложения
     public void ExitApp()
     {
 #if UNITY_EDITOR

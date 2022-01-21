@@ -15,19 +15,17 @@ public class ResolutionSettings : MonoBehaviour
             if(PlayerPrefs.GetInt("FullScreen") == 0)
             {
                 Screen.fullScreen = false;
-                windowsMode.isOn = !Screen.fullScreen;
             }
             else
             {
                 Screen.fullScreen = true;
-                windowsMode.isOn = !Screen.fullScreen;
             }
         }
         else
         {
             Screen.fullScreen = true;
-            windowsMode.isOn = !Screen.fullScreen;
         }
+        windowsMode.isOn = !Screen.fullScreen;
 
         Resolution[] resolutions = Screen.resolutions;
         resolutionsToArray = resolutions.Distinct().ToArray();
