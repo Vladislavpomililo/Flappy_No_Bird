@@ -27,7 +27,7 @@ public class UI_Main : MonoBehaviour
     // Метод загрузки игровой сцены
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneTransition.ToScene("GameScene");
     }
 
     // Метод входа в настройки 
