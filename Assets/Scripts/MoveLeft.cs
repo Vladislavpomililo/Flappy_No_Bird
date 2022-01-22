@@ -6,12 +6,12 @@ public class MoveLeft : MonoBehaviour
     private GameManager gameManager;
     private bool check = true;
 
-    void Start()
+    public virtual void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    void Update()
+    public virtual void Update()
     {
         if (gameManager.isGameOver == true)
         {
