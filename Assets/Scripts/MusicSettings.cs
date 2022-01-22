@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class MusicSettings : MonoBehaviour
 {
+    // загружаем и храним состояния музыки в игре(вкл/выкл)
+
     [SerializeField] private Toggle toggle;
     private int music;
 

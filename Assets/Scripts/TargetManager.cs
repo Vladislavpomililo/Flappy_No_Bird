@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
+    // Спавним шарики. Так же данный класс хранит цвет шара на который нажали
     [SerializeField] private GameObject ballon;
 
     [SerializeField] private float spawnPeriod;

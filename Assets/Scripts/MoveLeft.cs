@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
+    // Базовый класс движения на сцене. В Update удаление обьектов которые покинули сцену 
+
     [SerializeField] private float speed;
     private GameManager gameManager;
     private bool check = true;

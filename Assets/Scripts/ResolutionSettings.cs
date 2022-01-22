@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ResolutionSettings : MonoBehaviour
 {
+    // Храним и загружаем разрешение экрана и полноэкранность.
+
     [SerializeField] private Dropdown dropdown;
     [SerializeField] private Toggle windowsMode;
     private Resolution[] resolutionsToArray;

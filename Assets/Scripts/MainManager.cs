@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.IO;
 
+//ѕередаЄм обьекты между сценами не удал€€ их
+
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;

@@ -4,6 +4,7 @@ public class BackgroundMove : MoveLeft
 {
     private float repeatWidth;
 
+    // Задаём движение и перемещение бекграунду. Клас унаследован от класса движения.
     public override void Start()
     {
         base.Start();

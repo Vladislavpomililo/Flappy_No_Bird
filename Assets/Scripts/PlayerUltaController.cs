@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+// Логика для плеера под ультой
 public class PlayerUltaController : PlayerController
 {
     [SerializeField] private ParticleSystem explosionParticle;
@@ -13,7 +15,6 @@ public class PlayerUltaController : PlayerController
         playerAudio.PlayOneShot(ultaSound, 1f);
     }
 
-    // Проверяем тег обьекта коллизии и выполняем участок кода для данного тега
     public override void OnCollisionEnter(Collision other)
     {
         string tag = other.gameObject.tag;

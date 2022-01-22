@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    // Задаём позицию и цвет шару, передаём цвет для дальнейшего использования партиклом взрыва шара. Задаём движение шара.
+    // Отслеживаем нажатие курсора для уничтожения обьекта
+
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float xRange;

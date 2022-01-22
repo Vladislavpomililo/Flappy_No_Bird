@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Firework : MonoBehaviour
 {
+    // задаём цвет взрыву шариков и уничтожаем созданый партикл.
     [SerializeField] private float time;
 
     [System.Obsolete]

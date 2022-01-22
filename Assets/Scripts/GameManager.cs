@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+// Контроль игровой сцены
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject prefabPipe;
@@ -44,7 +46,6 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(isGameOver == false)

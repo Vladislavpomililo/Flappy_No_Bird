@@ -1,14 +1,16 @@
 using UnityEngine;
 
+// Контролируем птичку
+
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] protected float floatForce; // Сила прыжка птички
-    protected Rigidbody playerRb; // Переменная для присваивания компонента Rigidbody в методе Start. Взаимодействие с физикой
-    private GameManager gameManager; // Доступ к скирту GameManager. Присваивается в методе Start
-    [SerializeField] private AudioClip cornSound; // Поле ссылки на звук подбирания зерна(ульты)
-    [SerializeField] private AudioClip gameOverSound; // Поле ссылки на звук пригрыша
-    protected AudioSource playerAudio; // Доступ к компоненту AudioSource обьекта игрока. Присваивается в методе Start
-    private AudioSource mainSourse; // Доступ к компоненту AudioSource обьекта GameManager. Присваивается в методе Start
+    [SerializeField] protected float floatForce; 
+    protected Rigidbody playerRb; 
+    private GameManager gameManager; 
+    [SerializeField] private AudioClip cornSound; 
+    [SerializeField] private AudioClip gameOverSound; 
+    protected AudioSource playerAudio; 
+    private AudioSource mainSourse; 
 
     public virtual void Start()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Контролируем процесс загрузки сцены
+
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private Text loadingText;
